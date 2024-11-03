@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr1: rgb(138, 82, 144);
+    --clr2: rgb(208, 155, 198);
+    --primary1:#f44e1b;
+    --primary3:rgb(255, 251, 182);
+    --headingColor:rgb(241, 233, 75);
+    --primary2:#902ebb;
+}
+@font-face {
+    font-family: "halloween";
+    src: url("assest/Halloween.ttf") format("woff2"); /* Add other formats if needed */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px; /* Thin scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Light background for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary1); /* Use primary color for thumb */
+    border-radius: 10px; /* Rounded corners for a smoother look */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color:#ff825d;
+}
+body {
+    font-family: "halloween";
+    background-image: linear-gradient(to right, var(--clr1), var(--clr2));
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+body {
+     /* Prevent scrolling until animations are complete */
+}
+
+.greeting {
+    opacity: 0; /* Start invisible */
+    transform: translateY(-100px); /* Start from above */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transition effects */
+}
+
+.bat {
+    opacity: 0; /* Start invisible */
+    transform: translateY(-100px); /* Start from above */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transition effects */
+}
+.zombie {
+    opacity: 0; /* Start invisible */
+    transform: translateX(-100px); /* Start from above */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transition effects */
+}
+.pumkin {
+    opacity: 0; /* Start invisible */
+    transform: translateX(100px); /* Start from above */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transition effects */
+}
+
+.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+}
+
+main{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 3%;
+}
+.bat {
+    width: 10%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.bat-img {
+    width: 100%;
+    height: auto;
+    transform: rotate(180deg);
+    animation: sway 2s ease-in-out infinite;
+}
+
+.string {
+    width: 3px;
+    height: 65%;
+    transform-origin: top;
+    background-color: rgb(166, 166, 166);
+    animation: sway-string 2s ease-in-out infinite;
+}
+
+.greeting {
+    position: absolute;
+    font-family: "Rubik Wet Paint", cursive;
+    font-weight: 500;
+    font-size: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: -3;
+    width: 100%;
+    height: 100%;
+    padding-top: 2%;
+    color: var(--primary1);
+    text-shadow: 5px 5px 5px var(--primary2);
+}
+.bottom{
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+.bottom .pumkin {
+    position: relative; /* This makes the .eye-color position relative to .pumkin */
+}
+
+.bottom .pumkin .eye-color {
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    background-color: #3a0436;
+    /* background-color: #fffabb; */
+    top: 70%; /* Adjust as needed */
+    left: 60%; /* Adjust as needed */
+    transform: translate(-50%, -50%); /* Center the div */
+    z-index: -1; 
+    transition: all 0.3s ease;
+}
+.text-body{
+    letter-spacing: 0.15rem;
+    text-transform: capitalize;
+    font-size: 1.3rem;
+    padding: 2% 5%;
+    color: var(--primary3);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.text-body>*{
+    text-shadow: 2px 2px 2px var(--primary2);
+}
+.text-body  p span{
+    font-size: 2rem;
+    color: var(--headingColor);
+}
+.text-body h1{
+    text-align: center;
+    color: var(--headingColor);
+}
+
+hr{
+    width: 90%;
+}
+
+footer{
+    width: 90%;
+    padding:1% 0;
+    border-radius: 0.5rem;
+    background-color: var(--primary2);
+    margin: 1rem 0;
+}
+footer p{
+    font-size: 1.5rem;
+    color: var(--primary3);
+    text-align: center;
+}
+span.happy{
+    font-size: 6rem;
+}
+@keyframes sway {
+    0% {
+        transform: rotate(190deg);
+    }
+
+    50% {
+        transform: rotate(170deg);
+    }
+
+    100% {
+        transform: rotate(190deg);
+    }
+}
+
+@keyframes sway-string {
+    0% {
+        transform: rotate(-4deg);
+    }
+
+    50% {
+        transform: rotate(4deg);
+    }
+
+    100% {
+        transform: rotate(-4deg);
+    }
+}
